@@ -1,0 +1,205 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Prediction</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+
+        header {
+            background-color: #0d6efd;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        main {
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+        }
+
+        .form-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .form-container button {
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0a58ca;
+        }
+
+        .Prediction {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Laptop Price Prediction</h1>
+    </header>
+    <main>
+        <section class="description">
+            <h2><a href="/" style="text-decoration: none; color: black;">Estimate the Value of a Laptop</a></h2>
+            <p>Enter laptop specifications to predict its price using machine learning.</p>
+        </section>
+        <section class="form-container">
+            <h3>Enter Laptop Specifications</h3>
+            <form action="{{ url_for('predict') }}" method="post">
+                <label>Brand:</label>
+                <select name="brand">
+                    <option value="0">ASUS</option>
+                    <option value="1">Lenovo</option>
+                    <option value="2">acer</option>
+                    <option value="3">Avita</option>
+                    <option value="4">HP</option>
+                    <option value="5">DELL</option>
+                    <option value="6">MSI</option>
+                    <option value="7">APPLE</option>
+                </select>
+
+                <label>Processor Brand:</label>
+                <select name="processor_brand">
+                    <option value="0">Intel</option>
+                    <option value="1">AMD</option>
+                    <option value="2">M1</option>
+                </select>
+
+                <label>Processor Name:</label>
+                <select name="processor_name">
+                    <option value="0">Core i3</option>
+                    <option value="1">Core i5</option>
+                    <option value="2">Celeron Dual</option>
+                    <option value="3">Ryzen 5</option>
+                    <option value="4">Core i7</option>
+                    <option value="5">Core i9</option>
+                    <option value="6">M1</option>
+                    <option value="7">Pentium Quad</option>
+                    <option value="8">Ryzen 3</option>
+                    <option value="9">Ryzen 7</option>
+                    <option value="10">Ryzen 9</option>
+                </select>
+
+                <label>Processor Generation:</label>
+                <select name="processor_gnrtn">
+                    <option value="0">10th</option>
+                    <option value="1">Not Available</option>
+                    <option value="2">11th</option>
+                    <option value="3">7th</option>
+                    <option value="4">8th</option>
+                    <option value="5">9th</option>
+                    <option value="6">4th</option>
+                    <option value="7">12th</option>
+                </select>
+
+                <label>RAM:</label>
+                <select name="ram_gb">
+                    <option value="0">4 GB</option>
+                    <option value="1">8 GB</option>
+                    <option value="2">16 GB</option>
+                    <option value="3">32 GB</option>
+                </select>
+
+                <label>SSD:</label>
+                <select name="ssd">
+                    <option value="0">0 GB</option>
+                    <option value="1">512 GB</option>
+                    <option value="2">256 GB</option>
+                    <option value="3">128 GB</option>
+                    <option value="4">1024 GB</option>
+                    <option value="5">2048 GB</option>
+                    <option value="6">3072 GB</option>
+                </select>
+
+                <label>HDD:</label>
+                <select name="hdd">
+                    <option value="0">1024 GB</option>
+                    <option value="1">0 GB</option>
+                    <option value="2">512 GB</option>
+                    <option value="3">2048 GB</option>
+                </select>
+
+                <label>Operating System:</label>
+                <select name="os">
+                    <option value="0">Windows</option>
+                    <option value="1">DOS</option>
+                    <option value="2">Mac</option>
+                </select>
+
+                <label>OS Bit:</label>
+                <select name="os_bit">
+                    <option value="0">64-bit</option>
+                    <option value="1">32-bit</option>
+                </select>
+
+                <label>Graphic Card:</label>
+                <select name="graphic_card_gb">
+                    <option value="0">0 GB</option>
+                    <option value="1">2 GB</option>
+                    <option value="2">4 GB</option>
+                    <option value="3">6 GB</option>
+                    <option value="4">8 GB</option>
+                </select>
+
+                <label>Number of Ratings:</label>
+                <input type="number" name="ratings" required>
+
+                <label>Number of Reviews:</label>
+                <input type="number" name="reviews" required>
+
+                <button type="submit">Predict Price</button>
+            </form>
+        </section>
+    </main>
+    <div class="Prediction">
+        <h2>Laptop Price is : ₹{{ prediction }}</h2>
+    </div>
+</body>
+</html>
+
+
