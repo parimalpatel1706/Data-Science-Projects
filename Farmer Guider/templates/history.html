@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Prediction History</title>
+  <style>
+    body { font-family: Arial; background: #fff; padding: 2rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th { background-color: green; color: white; }
+    tr:nth-child(even) { background-color: #f2f2f2; }
+    a { text-decoration: none; margin-top: 1rem; display: inline-block; color: green; }
+  </style>
+</head>
+<body>
+  <h2>Previous Predictions</h2>
+  {% if historical_data %}
+  <table>
+    <tr>
+      <th>Prediction</th><th>N</th><th>P</th><th>K</th><th>Temp</th><th>Humidity</th><th>pH</th><th>Rainfall</th>
+    </tr>
+    {% for row in historical_data %}
+    <tr>
+      <td>{{ row[0] }}</td>
+      <td>{{ row[1] }}</td>
+      <td>{{ row[2] }}</td>
+      <td>{{ row[3] }}</td>
+      <td>{{ row[4] }}</td>
+      <td>{{ row[5] }}</td>
+      <td>{{ row[6] }}</td>
+      <td>{{ row[7] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <p>No predictions available yet.</p>
+  {% endif %}
+  <a href="/">Back to Home</a>
+</body>
+</html>
