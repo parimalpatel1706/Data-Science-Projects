@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request,url_for
 import joblib
-model = joblib.load(r"C:\Users\PARIMAL\OneDrive\Desktop\Data Science Internship\Projects\Bike Price\model.lb")
+model = joblib.load(r"C:\Users\PARIMAL\OneDrive\Desktop\Projects\Bike Price\model.lb")
 app = Flask(__name__)
 
 prediction_history = []

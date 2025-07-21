@@ -4,7 +4,7 @@ import numpy as np
 import joblib
 
 # Load the model with joblib
-model = joblib.load(r"C:\Users\PARIMAL\OneDrive\Desktop\Data Science Internship\Projects\Finance_Project\Finance_Project\model.joblib")  
+model = joblib.load(r"C:\Users\PARIMAL\OneDrive\Desktop\Projects\Finance_Project\Finance_Project\model.joblib")  
 
 app = Flask(__name__)
 

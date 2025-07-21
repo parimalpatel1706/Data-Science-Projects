@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 app = Flask(__name__)
-model = joblib.load(r"C:\Users\PARIMAL\OneDrive\Desktop\Data Science Internship\Projects\Farmer Guider\model_compressed.lb")
+model = joblib.load(r"C:\Users\PARIMAL\OneDrive\Desktop\Projects\Farmer Guider\model_compressed.lb")
 
 prediction_history = []
 
